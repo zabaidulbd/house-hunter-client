@@ -61,7 +61,7 @@ const SignUp = () => {
     }
     return (
         <div className='flex justify-center items-center min-h-screen'>
-            <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
+            <div className='flex flex-col max-w-md p-6 sm:p-10 bg-gray-100 text-gray-900'>
                 <div className='mb-8 text-center'>
                     <h1 className='my-3 text-4xl font-bold'>Register</h1>
 
@@ -149,11 +149,9 @@ const SignUp = () => {
                 </div>
                 <div
                     onClick={handleGoogleSignIn}
-                    className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer'
+                    className='flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer bg-gray-950'
                 >
-                    <FcGoogle size={32} />
-
-                    <p>Google</p>
+                    <p className='text-white'>Google-Login</p>
                 </div>
                 <p className='px-6 text-sm text-center text-gray-400'>
                     Already have an account?{' '}

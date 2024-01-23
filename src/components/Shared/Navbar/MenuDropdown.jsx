@@ -1,16 +1,19 @@
 import { AiOutlineMenu } from 'react-icons/ai'
 import Avatar from './Avatar'
-import { useContext, useState } from 'react'
+import { useCallback, useContext, useState } from 'react'
 import { AuthContext } from '../../../providers/AuthProvider'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const MenuDropdown = () => {
     const { user, logOut } = useContext(AuthContext)
     const [isOpen, setIsOpen] = useState(false)
-
     return (
         <div className='relative'>
             <div className='flex flex-row items-center gap-3'>
+                {/* Aircnc btn */}
+                <div className='hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 transition cursor-pointer'>
+
+                </div>
                 {/* Dropdown btn */}
                 <div
                     onClick={() => setIsOpen(!isOpen)}
@@ -23,7 +26,7 @@ const MenuDropdown = () => {
                 </div>
             </div>
             {isOpen && (
-                <div className='absolute rounded-xl shadow-md w-[40vw] md:w-[10vw] bg-white overflow-hidden right-0 top-12 text-sm'>
+                <div className='absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm'>
                     <div className='flex flex-col cursor-pointer'>
                         <Link
                             to='/'
@@ -32,24 +35,12 @@ const MenuDropdown = () => {
                             Home
                         </Link>
                         {user ? (
-                            <>
-                                <Link
-                                    to='/dashboard'
-                                    className='px-4 py-3 hover:bg-neutral-100 transition font-semibold'
-                                >
-                                    Dashboard
-                                </Link>
-
-                                <div
-                                    onClick={() => {
-                                        setRole(null)
-                                        logOut()
-                                    }}
-                                    className='px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer'
-                                >
-                                    Logout
-                                </div>
-                            </>
+                            <div
+                                onClick={logOut}
+                                className='px-4 py-3 hover:bg-neutral-100 transition font-semibold cursor-pointer'
+                            >
+                                Logout
+                            </div>
                         ) : (
                             <>
                                 <Link
