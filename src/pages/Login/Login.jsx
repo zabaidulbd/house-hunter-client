@@ -3,8 +3,7 @@ import toast from 'react-hot-toast'
 import { FcGoogle } from 'react-icons/fc'
 import { useContext } from 'react'
 import { AuthContext } from '../../providers/AuthProvider'
-import { TbFidgetSpinner } from 'react-icons/tb'
-import { saveUser } from '../../api/auth'
+import { TbForbidFilled } from 'react-icons/tb'
 
 const Login = () => {
     const { loading, setLoading, signIn, signInWithGoogle } =
@@ -34,8 +33,6 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result.user)
-                // save user to db
-                saveUser(result.user)
                 navigate(from, { replace: true })
             })
             .catch(err => {
@@ -94,7 +91,7 @@ const Login = () => {
                             className='bg-gray-950 w-full rounded-md py-3 text-white'
                         >
                             {loading ? (
-                                <TbFidgetSpinner className='m-auto animate-spin' size={24} />
+                                <TbForbidFilled className='m-auto animate-spin' size={24} />
                             ) : (
                                 'Login'
                             )}
